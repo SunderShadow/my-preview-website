@@ -1,0 +1,19 @@
+// Mobile first
+
+@use "env/global" as env;
+@use "env/mobile" as env-mobile;
+
+:root {
+  font-size: env-mobile.$regular-font-size;
+  font-family: env.$regular-font-family;
+}
+
+*:not(style, script, svg, path) {
+  all: unset;
+  display: block;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
