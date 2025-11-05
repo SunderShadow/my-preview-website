@@ -2,13 +2,15 @@
   import Icon from "$components/Icon.svelte"
 
   let {
-      headerOpen = $bindable(false),
-      loading = $bindable(false),
-    ...restProps
+    loading = false,
+    enabled = $bindable(false),
   } = $props()
 </script>
 
-<button class:header_open={headerOpen} class:loading {...restProps}>
+<button
+    onclick={() => {enabled = !enabled}}
+    class:enabled
+    class:loading>
   <span class="compass">
     <Icon icon="navigation" />
   </span>
@@ -19,15 +21,12 @@
 </button>
 
 <style lang="scss">
+  @use "sass:map";
+  @use "$scss/env/global" as env;
+
   button {
     width: fit-content;
     position: relative;
-  }
-
-  button.header_open {
-    .compass {
-      transform: rotate(90deg);
-    }
   }
 
   @keyframes loading {
@@ -44,13 +43,28 @@
     top: 13%;
     right: 13%;
 
-    transition: transform 500ms;
+    transition: transform var(--header-open-transition-duration);
     transform-origin: 10px 10px;
+  }
+
+  svg path {
+    transition: fill var(--header-open-transition-duration);
+    fill: map.get(env.$color, action);
   }
 
   button.loading {
     .compass {
       animation: loading 1s linear infinite;
+    }
+  }
+
+  button.enabled {
+    .compass {
+      transform: rotate(90deg);
+    }
+
+    svg path {
+      fill: map.get(env.$color, action-active);
     }
   }
 </style>

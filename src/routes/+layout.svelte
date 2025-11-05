@@ -2,10 +2,10 @@
   import "$scss/bootstrap.scss"
   import Header from "./_layout/Header.svelte"
   import HeaderToggler from "./_layout/HeaderToggler.svelte"
-  import {afterNavigate, beforeNavigate} from "$app/navigation";
+  import {afterNavigate, beforeNavigate} from "$app/navigation"
 
   let isHeaderOpen = $state(false)
-  let headerSlideAnimationDurationMs = 500
+  let headerHeight = $state()
   let pageLoading = $state(true)
 
   beforeNavigate(() => { pageLoading = true })
@@ -15,16 +15,17 @@
 </script>
 
 <div class="layout">
-  {#if isHeaderOpen}
-    <Header slideDurationMs={headerSlideAnimationDurationMs}/>
-  {/if}
+  <div id="page_header" class:closed={!isHeaderOpen} style:--height={headerHeight + 'px'}>
+    <Header bind:height={headerHeight} />
+  </div>
 
   <div class="layout-bottom">
     <div class="header_toggler">
       <HeaderToggler
+          bind:enabled={isHeaderOpen}
           loading={pageLoading}
           headerOpen={isHeaderOpen}
-          onclick={() => {isHeaderOpen = !isHeaderOpen}} />
+           />
     </div>
 
     <main>
@@ -35,7 +36,23 @@
 
 
 <style lang="scss">
+  #page_header {
+    --height: auto;
+    height: var(--height);
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+
+    transition-property: height, box-shadow;
+    transition-duration: 500ms;
+  }
+
+  #page_header.closed {
+    height: 0;
+    box-shadow: 0 1px 2px transparent;
+  }
+
   .layout {
+    --header-open-transition-duration: 500ms;
     display: flex;
     flex-direction: column;
     height: 100%;

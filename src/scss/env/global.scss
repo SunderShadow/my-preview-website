@@ -1,2 +1,38 @@
 $headings-font-family: 'Balsamiq Sans';
 $regular-font-family: 'Playpen Sans';
+
+$color: (
+  action: #227294,
+  action-active: #138FC4
+);
+
+@font-face {
+  font-weight: 700;
+  font-family: $headings-font-family;
+  src: url("/fonts/Balsamiq_Sans/BalsamiqSans-Bold.ttf");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: $headings-font-family;
+  font-style: italic;
+  src: url("/fonts/Balsamiq_Sans/BalsamiqSans-BoldItalic.ttf");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: $headings-font-family;
+  src: url("/fonts/Balsamiq_Sans/BalsamiqSans-Regular.ttf");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: $headings-font-family;
+  font-style: italic;
+  src: url("/fonts/Balsamiq_Sans/BalsamiqSans-Italic.ttf");
+}
+
+@font-face {
+  font-family: $regular-font-family;
+  src: url("/fonts/Playpen_Sans/PlaypenSans-VariableFont_wght.ttf");
+}
