@@ -25,6 +25,10 @@
     width: 100%;
   }
 
+  article {
+    position: relative;
+  }
+
   h1 {
     font-family: env.$headings-font-family;
     font-size: 1.5rem;

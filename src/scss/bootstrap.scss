@@ -18,9 +18,11 @@ body, a, h1, h2, h3, h4, h5, h6, p, span, div, button {
 *,
 ::before,
 ::after {
+  -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 }
 
 a {
   color: map.get(env.$color, action);
+  cursor: pointer;
 }

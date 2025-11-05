@@ -14,10 +14,6 @@
   <span class="compass">
     <Icon icon="navigation" />
   </span>
-
-  <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M46 0H0L18 29L46 46V0Z" fill="black"/>
-  </svg>
 </button>
 
 <style lang="scss">
@@ -25,8 +21,19 @@
   @use "$scss/env/global" as env;
 
   button {
-    width: fit-content;
+    display: flex;
+
+    width: 60px;
+    height: 60px;
     position: relative;
+
+    background-color: map.get(env.$color, action);
+
+    transition: background-color var(--header-open-transition-duration);
+
+    mask-image: url("/header_open_mask.svg");
+    mask-repeat: no-repeat;
+    mask-size: 100%;
   }
 
   @keyframes loading {
@@ -39,12 +46,23 @@
   }
 
   .compass {
-    position: absolute;
-    top: 13%;
-    right: 13%;
-
+    margin: 10% 10% auto auto;
     transition: transform var(--header-open-transition-duration);
-    transform-origin: 10px 10px;
+
+    width: 50%;
+    height: 50%;
+
+    :global {
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  button > svg {
+    width: 100%;
+    height: 100%;
   }
 
   svg path {
@@ -63,8 +81,6 @@
       transform: rotate(90deg);
     }
 
-    svg path {
-      fill: map.get(env.$color, action-active);
-    }
+    background: map.get(env.$color, action-active);
   }
 </style>
