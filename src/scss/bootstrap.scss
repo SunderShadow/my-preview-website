@@ -1,5 +1,6 @@
 // Mobile first
 
+@use "sass:map";
 @use "env/global" as env;
 @use "env/mobile" as env-mobile;
 
@@ -8,18 +9,18 @@
   font-family: env.$regular-font-family;
 }
 
-*:not(style, script, svg, path) {
+body, a, h1, h2, h3, h4, h5, h6, p, span, div, button {
   all: unset;
   display: block;
   box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
 }
 
 *,
 ::before,
 ::after {
   box-sizing: border-box;
+}
+
+a {
+  color: map.get(env.$color, action);
 }

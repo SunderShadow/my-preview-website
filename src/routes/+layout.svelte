@@ -14,18 +14,18 @@
   let {children} = $props()
 </script>
 
-<div class="layout">
-  <div id="page_header" class:closed={!isHeaderOpen} style:--height={headerHeight + 'px'}>
+<div id="layout" style:--header-height={headerHeight + 'px'}>
+  <div id="page_header" class:closed={!isHeaderOpen}>
     <Header bind:height={headerHeight} />
   </div>
 
   <div class="layout-bottom">
-    <div class="header_toggler">
+    <div id="header_toggler" class:header_open={isHeaderOpen}>
       <HeaderToggler
           bind:enabled={isHeaderOpen}
           loading={pageLoading}
           headerOpen={isHeaderOpen}
-           />
+      />
     </div>
 
     <main>
@@ -36,12 +36,19 @@
 
 
 <style lang="scss">
+  :global {
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+  }
+
   #page_header {
-    --height: auto;
-    height: var(--height);
+    height: var(--header-height);
     overflow: hidden;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 
+    flex-shrink: 0;
     transition-property: height, box-shadow;
     transition-duration: 500ms;
   }
@@ -51,7 +58,7 @@
     box-shadow: 0 1px 2px transparent;
   }
 
-  .layout {
+  #layout {
     --header-open-transition-duration: 500ms;
     display: flex;
     flex-direction: column;
@@ -65,14 +72,22 @@
       > .layout-bottom {
         position: relative;
         flex-grow: 1;
+        overflow: auto;
       }
     }
   }
 
-  .header_toggler {
+  #header_toggler {
     top: 0;
     right: 0;
 
-    position: absolute;
+    position: fixed;
+    z-index: 100;
+
+    transition: top var(--header-open-transition-duration);
+
+    &.header_open {
+      top: var(--header-height);
+    }
   }
 </style>
