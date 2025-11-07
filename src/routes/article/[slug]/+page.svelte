@@ -13,15 +13,16 @@
       published_at
   } = data
 
-  const currentUrl = page.url.pathname
+  const currentPathname = page.url.pathname
+  const currentHost = page.url.host
 </script>
 
 <svelte:head>
   <title>{title}</title>
 
   <meta property="og:title" content={title}>
-  <meta property="og:image" content={thumbnail}>
-  <meta property="og:url" content={currentUrl}>
+  <meta property="og:image" content={currentHost + thumbnail}>
+  <meta property="og:url" content={currentHost + currentPathname}>
   <meta property="og:type" content="article">
 
   <meta property="article:published_time" content={published_at.toISOString()}>
@@ -37,7 +38,7 @@
   <div class="breadcrumbs">
     <a href="/">Главная</a>
     <a href="/">Посты</a>
-    <a href={currentUrl}>{title}</a>
+    <a href={currentPathname}>{title}</a>
   </div>
 
   <h1>{title}</h1>
