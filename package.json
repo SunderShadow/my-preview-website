@@ -27,6 +27,7 @@
 		]
 	},
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^6.1.1",
 		"sass-embedded": "^1.93.2"
 	}
 }
