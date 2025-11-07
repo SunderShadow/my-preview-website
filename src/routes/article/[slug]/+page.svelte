@@ -25,6 +25,8 @@
   <meta property="og:url" content={currentHost + currentPathname}>
   <meta property="og:type" content="article">
 
+  <meta name="twitter:card" content="summary_large_image" />
+
   <meta property="article:published_time" content={published_at.toISOString()}>
   <meta property="article:author" content="emotion">
     <meta property="profile" content="">
