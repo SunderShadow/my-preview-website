@@ -5,6 +5,14 @@
   let {
       data
   } = $props()
+
+  const {
+      title,
+      content,
+      thumbnail
+  } = data
+
+  const currentUrl = page.url.pathname
 </script>
 
 <svelte:head>
@@ -15,13 +23,15 @@
   <div class="breadcrumbs">
     <a href="/">Главная</a>
     <a href="/">Посты</a>
-    <a href={page.url.pathname}>{data.title}</a>
+    <a href={currentUrl}>{title}</a>
   </div>
 
-  <h1>{data.title}</h1>
+  <h1>{title}</h1>
+
+  <img src={thumbnail} alt="">
 
   <div class="content">
-    <ArticleRenderer content={data.content}/>
+    <ArticleRenderer {content}/>
   </div>
 </div>
 
@@ -31,6 +41,11 @@
   .container {
     margin-left: 8px;
     margin-right: 8px;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
   }
 
   .breadcrumbs {

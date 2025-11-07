@@ -1,12 +1,13 @@
 <script lang="ts">
   let {
+      thumbnail,
       title,
       href,
       excerpt
   } = $props()
 </script>
 <article>
-  <img src="/2025-02-02_23-53.png" alt="">
+  <img src={thumbnail} alt="">
 
   <div class="body">
     <h1><a {href}>{title}</a></h1>

@@ -4,11 +4,13 @@ import {El} from "$components/ArticleRenderer/type"
 export const load = () => {
     type PageData = {
         title: string,
+        thumbnail: string,
         content: Array<Content>
     }
 
     const pageData: PageData = {
         title: 'Как я сделал свой сайт',
+        thumbnail: '/post_preview.png',
         content: [
             {
                 el: El.Paragraph,
@@ -31,6 +33,5 @@ export const load = () => {
         ]
     }
 
-    console.log(pageData)
     return pageData
 }

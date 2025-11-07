@@ -11,6 +11,7 @@
 <div class="posts">
   {#each Array(5) as _}
     <Post href="/article/some-article/"
+          thumbnail="/post_preview.png"
           title="Очень длинный заголовок для прикольного поста"
           excerpt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, pariatur?"
     />
