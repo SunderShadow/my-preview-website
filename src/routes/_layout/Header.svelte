@@ -80,18 +80,18 @@
     margin-right: auto;
 
     font-weight: 200;
-    font-size: 10px;
+    font-size: 1.25rem;
   }
 
   a {
-    --size: 25px;
+    --size: 3rem;
 
     width: var(--size);
     height: var(--size);
 
     border-radius: 100em;
 
-    padding: 3.75px;
+    padding: .5rem;
 
     background: map.get(env.$color, action);
 
