@@ -60,6 +60,7 @@
 
   #layout {
     --header-open-transition-duration: 500ms;
+
     display: flex;
     flex-direction: column;
     height: 100%;
