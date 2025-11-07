@@ -10,6 +10,7 @@
       title,
       content,
       thumbnail,
+      excerpt,
       published_at
   } = data
 
@@ -23,10 +24,13 @@
   <meta property="og:title" content={title}>
   <meta property="og:image" content={currentHost + thumbnail}>
   <meta property="og:url" content={currentHost + currentPathname}>
-  <meta property="og:type" content="article">
+  <meta property="og:description" content={excerpt}>
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Sunder's blog">
 
   <meta name="twitter:card" content="summary_large_image" />
 
+  <meta property="og:type" content="article">
   <meta property="article:published_time" content={published_at.toISOString()}>
   <meta property="article:author" content="emotion">
     <meta property="profile" content="">
