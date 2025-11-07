@@ -19,20 +19,18 @@
 <svelte:head>
   <title>{title}</title>
 
-  <div style="display: contents">
-    <meta property="og:title" content={title}>
-    <meta property="og:image" content={thumbnail}>
-    <meta property="og:url" content={currentUrl}>
-    <meta property="og:type" content="article">
+  <meta property="og:title" content={title}>
+  <meta property="og:image" content={thumbnail}>
+  <meta property="og:url" content={currentUrl}>
+  <meta property="og:type" content="article">
 
-    <meta property="article:published_time" content={published_at.toISOString()}>
-    <meta property="article:author" content="emotion">
-      <meta property="profile" content="">
-      <meta property="profile:first_name" content="Александр">
-      <meta property="profile:last_name" content="Шведов">
-      <meta property="profile:username" content="emotion">
-      <meta property="profile:gender" content="male">
-  </div>
+  <meta property="article:published_time" content={published_at.toISOString()}>
+  <meta property="article:author" content="emotion">
+    <meta property="profile" content="">
+    <meta property="profile:first_name" content="Александр">
+    <meta property="profile:last_name" content="Шведов">
+    <meta property="profile:username" content="emotion">
+    <meta property="profile:gender" content="male">
 </svelte:head>
 
 <div class="container">
