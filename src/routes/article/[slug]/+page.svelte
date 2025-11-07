@@ -14,7 +14,7 @@
   } = data
 
   const currentPathname = page.url.pathname
-  const currentHost = page.url.host
+  const currentHost = page.url.origin
 </script>
 
 <svelte:head>
